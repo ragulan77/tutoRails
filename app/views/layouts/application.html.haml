@@ -5,15 +5,10 @@
 		= stylesheet_link_tag "application", :media => "all" 
 		= javascript_include_tag "application" 
 		= csrf_meta_tags 
+		= render 'layouts/shim'
 	%body
-	%header.navbar-fixed-top.navbar-inverse
-		.navbar-inner
-			.container
-				= link_to "sample app", '#', id: "logo"
-				%nav
-					%ul.nav.pull-right
-						%li= link_to "Home", static_pages_home_path
-						%li= link_to "Help", static_pages_help_path
-						%li= link_to "Sign in", static_pages_about_path
-					.container= yield 
+		= render 'layouts/header'
+		.container
+			= yield
+			= render 'layouts/footer'
 
